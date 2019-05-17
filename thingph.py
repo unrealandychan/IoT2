@@ -14,14 +14,14 @@ import serial.tools.list_ports
 import requests
 from gpiozero import CPUTemperature
 
-#处理、显示光照值    
+#處理、顯示數值    
 def valueShow(argv):
     gzValue = '0x' + argv[11:13].replace(' ','')
-    #print('光照值:%.1f' % float(int(gzValue,16)))
+    #print('PH:%.1f' % float(int(gzValue,16)))
     return gzValue
 
 
-# 发送光照请求数据
+# 發送訊號請求 PH 數值
 def data_send(ser):
     #input_s = [1,3,0,2,0,2,101,203]  #0x01 0x03 0x00 0x00 0x00 0x02 0x65 0XCB
     input_s = [1,3,0,8,0,1,5,200]  #0x01 0x03 0x00 0x08 0x00 0x01 0x05 0XC8
@@ -29,7 +29,7 @@ def data_send(ser):
     print("Data Sent:",data)
     ser.write(data)
 
-# 接收光照数据
+# 接收 PH 數值
 def data_receive(ser):
     try:
         num = ser.inWaiting()
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     plist = list(serial.tools.list_ports.comports())
     #api_key = "0XW889E6RZV30F2H" #stempdummy
     #api_key = "2Y2R3NFQSI7LO419" #stempeduhk
-    api_key = "NOYMJU2NLMZNCLFG" phValue
+    #api_key = "NOYMJU2NLMZNCLFG" #phValue
 
     cpu = CPUTemperature()
     

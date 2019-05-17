@@ -17,6 +17,7 @@ from gpiozero import CPUTemperature
 #處理、顯示數值    
 def valueShow(argv):
     gzValue = '0x' + argv[12:14].replace(' ','')
+    print(gzValue)
     return gzValue
 
 
@@ -59,12 +60,12 @@ if __name__ == '__main__':
         plist_0 = list(plist[0])
         serialName = plist_0[0]
         ser = serial.Serial(serialName, 9600, timeout=0.5)
-        print("連接 I/O"", ser.name)
+        print("連接 I/O", ser.name)
         while True:
             data_send(ser)
             time.sleep(2)
             returnValue = data_receive(ser)
-            phValue = int(ruturnValue,16)
+            phValue = int(returnValue,16)
             
             #data= {"api_key":api_key,
             #       "field1":phValue,

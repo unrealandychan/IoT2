@@ -49,7 +49,7 @@ def data_receive(ser):
 if __name__ == '__main__':
     plist = list(serial.tools.list_ports.comports())
     #api_key = "0XW889E6RZV30F2H" #stempdummy
-    #api_key = "2Y2R3NFQSI7LO419" #stempeduhk
+    #api_key = "2Y2R3NFQSI7LO419" #stempeduhk 
     api_key = "NOYMJU2NLMZNCLFG" phValue
 
     cpu = CPUTemperature()
@@ -73,7 +73,6 @@ if __name__ == '__main__':
             
             #res = requests.post("https://api.thingspeak.com/update.json",data=data)
             
-            #conn.commit()
             #print('PH VALUE:%.1f' % float(gzValue))
             print('PH: ',phValue)
             print('CPU TEMP: ', cpu.temperature)

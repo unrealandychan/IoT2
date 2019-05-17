@@ -16,8 +16,7 @@ from gpiozero import CPUTemperature
 
 #處理、顯示數值    
 def valueShow(argv):
-    gzValue = '0x' + argv[11:13].replace(' ','')
-    #print('PH:%.1f' % float(int(gzValue,16)))
+    gzValue = '0x' + argv[12:14].replace(' ','')
     return gzValue
 
 
@@ -55,17 +54,17 @@ if __name__ == '__main__':
     cpu = CPUTemperature()
     
     if len(plist) <= 0:
-        print("没有发现端口!")
+        print("發現沒有連接!")
     else:
         plist_0 = list(plist[0])
         serialName = plist_0[0]
         ser = serial.Serial(serialName, 9600, timeout=0.5)
-        print("可用端口名>>>", ser.name)
+        print("連接 I/O"", ser.name)
         while True:
             data_send(ser)
-            time.sleep(1)
-            data_receive(ser)
-            phValue = int(data_receive(ser),16)
+            time.sleep(2)
+            returnValue = data_receive(ser)
+            phValue = int(ruturnValue,16)
             
             #data= {"api_key":api_key,
             #       "field1":phValue,
@@ -74,7 +73,7 @@ if __name__ == '__main__':
             #res = requests.post("https://api.thingspeak.com/update.json",data=data)
             
             #print('PH VALUE:%.1f' % float(gzValue))
-            print('PH: ',phValue)
+            print('PH: ',phValue/10)
             print('CPU TEMP: ', cpu.temperature)
             time.sleep(15)
         

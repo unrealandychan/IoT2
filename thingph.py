@@ -73,7 +73,6 @@ if __name__ == '__main__':
             
             #res = requests.post("https://api.thingspeak.com/update.json",data=data)
             
-            #conn.commit()
             #print('PH VALUE:%.1f' % float(gzValue))
             print('PH: ',phValue)
             print('CPU TEMP: ', cpu.temperature)
